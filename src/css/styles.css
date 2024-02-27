@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  /*
+  * Created with https://www.css-gradient.com
+  * Gradient link: https://www.css-gradient.com/?c1=010101&c2=2f0135&gt=r&gd=dcl
+  */
+  background: linear-gradient(217deg, rgba(64, 2, 207, 0.8), rgb(0, 0, 0) 70.71%), linear-gradient(127deg, rgba(164, 5, 172, 0.5), rgb(214, 8, 163) 10%), linear-gradient(90deg, rgb(232, 7, 146), rgba(0, 0, 255, 0.5) 70%);
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 30px 70px;
+}
+.header__content {
+  display: flex;
+  width: 100%;
+}
+.header__menu {
+  width: 13%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  display: flex;
+  width: 74%;
+  justify-content: center;
+  align-items: center;
+}
+.header__vacio {
+  width: 13%;
+}
+.header__img {
+  display: flex;
+  width: 180px;
+}
+
+.section-main {
+  width: 100%;
+  display: flex;
+  padding: 30px 70px;
+}
+.section-main__content-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35%;
+  gap: 15px;
+  padding-right: 100px;
+}
+.section-main__title {
+  font-size: 45px;
+}
+.section-main__content-images {
+  width: 75%;
+  gap: 35px;
+  display: flex;
+  overflow: hidden;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
+.section-main__item-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section-main__image {
+  display: flex;
+  width: 230px;
+  height: auto;
+}
+.section-main__button {
+  width: 60%;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to right, rgb(74, 41, 188), #9690ed);
+  border-radius: 100px;
+}
+
+.section-favorites {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 70px;
+}
+.section-favorites__content-images {
+  margin-top: 20px;
+  width: 100%;
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
+.section-favorites__item-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section-favorites__image {
+  display: flex;
+  width: 160px;
+}
+
+/*# sourceMappingURL=styles.css.map */

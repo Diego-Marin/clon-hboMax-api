@@ -1,37 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/styles.css">
   <title>Clon HBOmax</title>
 </head>
+
 <body>
-  <!-- <div id="movies-container"></div> -->  
   <header class="header">
+    <div class="header__content">
 
-   <div class="header_content">
-    <div class="header_content_menu">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-list" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-search" viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-      </svg>
+      <div class="header__menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-search"
+          viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person-fill"
+          viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+        </svg>
+      </div>
+      <div class="header__logo">
+        <img class="header__img" src="./src/assets/logo-hboMax.png" alt="logo-hboMax">
+      </div>
+      <div class="header__vacio"></div>
+
     </div>
-    <div class="header_content_logo">
-      <img src="./src/assets/logo-hboMax.png" alt="logo-hboMax">
-    </div>
-    <div class="header_content_vacio"></div>
-
-   </div>
-
   </header>
 
+  <section class="section-main">
+    <div class="section-main__content-info">
+      <h1 class="section-main__title">I'll Have What She's Having</h1>
+      <p>Pour some wine, put on your comfiests PJs and laugh-cry your way through these loveable classics.</p>
+      <button class="section-main__button">VIEW COLLECTION</button>
+    </div>
+
+    <div class="section-main__content-images">
+
+      <!-- <div class="section-main__item-images">
+        <img class="section-main__image" src="./src/assets/1.jpg" alt="">
+        <p class="section-main__text">Crazy Stupid Love</p>
+      </div> -->
+
+    </div>
+
+  </section>
+
+  <section class="section-favorites">
+    <div class="section-favorites__content-info">
+      <h2 class="section-favorites__title">Max Originals</h2>
+    </div>
+
+    <div class="section-favorites__content-images">
+
+      <!-- <div class="section-favorites__item-images">
+        <img class="section-favorites__image" src="./src/assets/1.jpg" alt="">
+        <p class="section-favorites__text">Crazy Stupid Love</p>
+      </div> -->
+      
+    </div>
+  </section>
+
+  </div>
   <script src="main.js"></script>
 </body>
+
 </html>

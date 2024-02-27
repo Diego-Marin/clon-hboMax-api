@@ -1,0 +1,24 @@
+# Archivos y directorios generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpeta de dependencias Node.js
+node_modules/
+
+# Archivos de compilación y carpetas generadas
+/dist/
+/build/
+/out/
+/.next/
+/.nuxt/
+
+# Configuración de entorno
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Archivos de registro y salida
+*.log
+npm-debug.log*

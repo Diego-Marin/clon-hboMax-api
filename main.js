@@ -1,25 +1,46 @@
-//Nueva API
-// API KEY a030899d3821596bf58a076d2e4d9cbf
 
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer a030899d3821596bf58a076d2e4d9cbf'
-//   }
-// };
-
-// fetch('https://api.themoviedb.org/3/authentication', options)
-//   .then(response => response.json())
-//   .then(response => console.log(response))
-//   .catch(err => console.error(err));
-
-
-//https://developer.themoviedb.org/reference/intro/authentication#api-key-quick-start
+//https://developer.themoviedb.org/reference
 const apiKey = 'a030899d3821596bf58a076d2e4d9cbf';
 
 // Obtener películas populares
 const popularMoviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=2`;
+const topRatedMoviesUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
+
+/*
+*********************************** FUNCION PARA SCROLLING
+*/
+document.addEventListener('DOMContentLoaded', function () {
+
+  const containerMain = document.querySelector('.section-main__content-images');
+  const containerFavorites = document.querySelector('.section-favorites__content-images');
+
+  containerMain.addEventListener('wheel', function (event) {
+    // Obtén el valor de desplazamiento horizontal del evento de la rueda del ratón
+    const delta = event.deltaY || event.detail || event.wheelDelta;
+
+    // Ajusta la posición horizontal del contenedor
+    containerMain.scrollLeft += delta;
+
+    // Evita que la página se desplace verticalmente
+    event.preventDefault();
+  });
+
+  containerFavorites.addEventListener('wheel', function (event) {
+    // Obtén el valor de desplazamiento horizontal del evento de la rueda del ratón
+    const delta = event.deltaY || event.detail || event.wheelDelta;
+
+    // Ajusta la posición horizontal del contenedor
+    containerFavorites.scrollLeft += delta;
+
+    // Evita que la página se desplace verticalmente
+    event.preventDefault();
+  });
+});
+
+
+/*
+*********************************** FUNCION PARA CARGAR ELEMENTOS MOVIES CONTENT MAIN
+*/
 
 // Realizar la solicitud para obtener películas populares
 fetch(popularMoviesUrl)
@@ -29,100 +50,81 @@ fetch(popularMoviesUrl)
     const movies = data.results;
 
     // Obtener el contenedor HTML
-    const moviesContainer = document.getElementById('movies-container');
+    const moviesContainerMain = document.querySelector('.section-main__content-images');
 
     // Iterar sobre las películas y mostrar las imágenes
     movies.forEach(movie => {
-      // Crear un elemento de imagen
-      const imgElement = document.createElement('img');
 
       // Construir la URL de la imagen utilizando la base URL de imágenes de TMDb
       const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+      const textImage = `https://image.tmdb.org/t/p/w500/${movie.title}`;
 
-      // Establecer la fuente de la imagen
+      // Crear elementos
+      var containerMain = document.createElement('div');
+      containerMain.className = 'section-main__item-images';
+
+      var imgElement = document.createElement('img');
+      imgElement.className = 'section-main__image';
       imgElement.src = imageUrl;
+      imgElement.alt = '';
+
+      var text = document.createElement('p');
+      text.className = 'section-main__text';
+      text.textContent = movie.title;
 
       // Agregar la imagen al contenedor
-      moviesContainer.appendChild(imgElement);
+      containerMain.appendChild(imgElement);
+      // Agregar la imagen al contenedor
+      containerMain.appendChild(text);
+
+      // Agregar la imagen al contenedor
+      moviesContainerMain.appendChild(containerMain);
     });
   })
   .catch(error => console.error('Error fetching popular movies:', error));
 
 
+/*
+*********************************** FUNCION PARA CARGAR MOVIES FAVORITES
+*/
 
+// Obtener películas Top Rated
+fetch(topRatedMoviesUrl)
+  .then(response => response.json())
+  .then(data => {
+    // Obtener la lista de películas
+    const movies = data.results;
 
+    // Obtener el contenedor HTML
+    const moviesContainerFavorites = document.querySelector('.section-favorites__content-images');
 
+    // Iterar sobre las películas y mostrar las imágenes
+    movies.forEach(movie => {
 
+      // Construir la URL de la imagen utilizando la base URL de imágenes de TMDb
+      const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+      const textImage = `https://image.tmdb.org/t/p/w500/${movie.title}`;
 
-// Ejemplo de estructura de contenido API:  https://www.omdbapi.com/?i=tt0944947&apikey=611124c
-// https://www.omdbapi.com/?apikey=611124c&t=Titanic
+      // Crear elementos
+      var containerFavorites = document.createElement('div');
+      containerFavorites.className = 'section-favorites__item-images';
 
-// // script.js
-// const apiKey = '611124c'; // Reemplaza 'tu_clave_api' con tu clave real
-// const moviesContainer = document.getElementById('movies-container'); // Reemplaza 'movies-container' con el ID de tu contenedor
-// const maxMoviesToFetch = 20; // Puedes ajustar la cantidad máxima de películas que deseas obtener
+      var imgElement = document.createElement('img');
+      imgElement.className = 'section-favorites__image';
+      imgElement.src = imageUrl;
+      imgElement.alt = '';
 
-// // Función para obtener y mostrar películas aleatorias con póster
-// const getRandomMoviesWithPoster = async () => {
-//   let moviesAdded = 0;
+      var text = document.createElement('p');
+      text.className = 'section-favorites__text';
+      text.textContent = movie.title;
 
-//   while (moviesAdded < maxMoviesToFetch) {
-//     const success = await getRandomMovieWithPoster();
+      // Agregar la imagen al contenedor
+      containerFavorites.appendChild(imgElement);
+      // Agregar la imagen al contenedor
+      containerFavorites.appendChild(text);
 
-//     if (success) {
-//       moviesAdded++;
-//     }
-//   }
-// };
-
-// // Función para obtener y mostrar una película aleatoria con póster
-// const getRandomMovieWithPoster = async () => {
-//   try {
-//     let randomImdbId;
-
-//     // Realizar un bucle hasta que se encuentre una película con póster
-//     while (true) {
-//       // Generar un ID de IMDb aleatorio (formato ttXXXXXXX)
-//       randomImdbId = `tt${Math.floor(Math.random() * 10000000)}`;
-
-//       console.log('Intentando con IMDb ID:', randomImdbId);
-
-//       const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&i=${randomImdbId}`;
-
-//       // Realizar la solicitud a la API utilizando fetch
-//       const response = await fetch(apiUrl);
-
-//       // Verificar si la solicitud fue exitosa (código de estado 200)
-//       if (response.ok) {
-//         // Convertir la respuesta a formato JSON
-//         const data = await response.json();
-
-//         // Verificar si la película tiene un póster, título y al menos una calificación
-//         if (data.Poster !== "N/A" && data.Title && data.Ratings && data.Ratings.length > 0) {
-//           // Crear un elemento de imagen y agregarlo al contenedor
-//           const imgElement = document.createElement('img');
-//           imgElement.src = data.Poster;
-//           imgElement.alt = data.Title;
-
-//           moviesContainer.appendChild(imgElement);
-
-//           // Mostrar la información de la película
-//           console.log('Película encontrada:', data);
-//           return true; // Retorna true para indicar que se agregó una película con éxito
-//         } else {
-//           console.log('La película no cumple con los requisitos:', data);
-//         }
-//       } else {
-//         // En caso de error, imprimir el mensaje de error
-//         console.error(`Error en la solicitud a la API: ${response.status} - ${response.statusText}`);
-//       }
-//     }
-//   } catch (error) {
-//     // Capturar errores de red u otros errores
-//     console.error('Error al realizar la solicitud:', error);
-//     return false; // Retorna false en caso de error
-//   }
-// };
-
-// // Llamar a la función para obtener y mostrar películas aleatorias con póster
-// getRandomMoviesWithPoster();
+      // Agregar la imagen al contenedor
+      moviesContainerFavorites.appendChild(containerFavorites);
+    });
+  })
+  .catch(error => console.error('Error fetching popular movies:', error));
